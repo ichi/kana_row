@@ -43,7 +43,7 @@ module KanaRow
 
     row = kanas_map(include_special: include_special).find{|_, v| v.include?(kana) }&.first
     row = MARKED_KANA_ROWS.fetch(row, row) if marked_to_plain
-    row = row.hiragana if is_hiragana
+    row = row&.hiragana if is_hiragana
 
     row
   end

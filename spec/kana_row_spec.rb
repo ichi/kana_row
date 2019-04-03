@@ -55,9 +55,15 @@ RSpec.describe KanaRow do
       end
     end
 
-    context 'without kana' do
+    context 'with non kana character' do
       it "returns nil" do
         expect(%w(漢 A Ｂ 1 ２ 😁).sample.kana_row).to be_nil
+      end
+    end
+
+    context 'with blank' do
+      it "returns nil" do
+        expect(''.kana_row).to be_nil
       end
     end
   end
